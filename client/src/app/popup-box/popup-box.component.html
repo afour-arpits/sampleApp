@@ -1,0 +1,28 @@
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <table>
+      <tr>
+        <td>Id : </td>
+        <td>{{this.content.id}}</td>
+      </tr>
+      <tr>
+        <td>Description : </td>
+        <td>{{this.content.description}}</td>
+      </tr>
+      <tr>
+        <td>Like : </td>
+        <td>{{this.content.like_count}}</td>
+      </tr>
+      <tr>
+        <td>Comment count : </td>
+        <td>{{this.content.comment_count}}</td>
+      </tr>
+      <tr>
+        <td>Image</td>
+        <td>{{this.content.image}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

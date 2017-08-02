@@ -1,0 +1,12 @@
+<div class="search-results"
+            infinite-scroll
+            [infiniteScrollDistance]="5"
+            [infiniteScrollThrottle]="500"
+            (scrolled)="onScrollDown()">
+  <div class="content-wrapper" *ngFor="let comment of docs" (click)="openModal(comment._id)">
+    <p> Id : {{ comment.id }}</p>
+    <p> Title : {{ comment.description }}</p>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
