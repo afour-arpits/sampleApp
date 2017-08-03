@@ -5,20 +5,9 @@ import { PopupBoxComponent } from './popup-box/popup-box.component'
 
 const appRoutes: Routes = [
   {
-    path: '',
-    redirectTo: 'comments',
-    pathMatch: "full",
-  },
-  {
-    path: 'comments',
-    component: AppComponent,
-    children : [
-      {
-        path: ':id',
-        component: PopupBoxComponent
-      }
-    ]
-  },
+    path: ':id',
+    component: PopupBoxComponent
+  }
 ]
 
 @NgModule({

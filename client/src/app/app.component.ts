@@ -12,27 +12,27 @@ import { CommentsService } from './services/comments.service'
 })
 export class AppComponent implements OnInit {
   public allData : any
-  public docs : Array<any>
+  public docs : Array<any> = []
   constructor( private commentsService : CommentsService, private router: Router, private route: ActivatedRoute) {}
 
   public ngOnInit() {
-    this.commentsService.getCommentsByPage(1).subscribe(responce => {
-      this.allData = responce.comments
-      this.docs = responce.comments.docs
-      console.log(responce.comments.docs)
-    })
+    this.loadData(1)
   }
 
   public onScrollDown () {
     let pageNumber = Number(this.allData.page) + 1
     if( pageNumber <= this.allData.pages)
-      this.commentsService.getCommentsByPage(pageNumber).subscribe(responce => {
-        this.allData = responce.comments 
-        this.docs = this.docs.concat(responce.comments.docs)
-      })
+      this.loadData(pageNumber)
   }
 
   public openModal (commentId) {
-    this.router.navigate(['comments', commentId]);
+    this.router.navigate(['/', commentId]);
+  }
+
+  private loadData(page) {
+    this.commentsService.getCommentsByPage(page).subscribe(responce => {
+      this.allData = responce.comments 
+      this.docs = this.commentsService.data
+    })
   }
 }

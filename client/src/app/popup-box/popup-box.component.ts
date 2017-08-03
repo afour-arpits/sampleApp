@@ -14,9 +14,8 @@ export class PopupBoxComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(value => {
       let id = value["id"]
-      if(this.commentsService.data[id])
-        this.content = this.commentsService.data[id]
-      else
+      this.content = this.commentsService.data.find( item => item._id === id )
+      if(!this.content)
         this.router.navigate(['../']);
     })
   }

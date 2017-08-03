@@ -11,13 +11,8 @@ export class CommentsService {
   public getCommentsByPage(page) : Observable<any> {
     return this.http.get('http://localhost:3000?page='+page)
     .map( rs =>{
-      this.dataToHash(rs['comments']['docs'], this.data)
-      console.log(this.data)
+      this.data = this.data.concat(rs['comments']['docs'])
       return rs
     })
-  }
-
-  private dataToHash(data, ref) {
-    data.map( i => { ref[i._id] = i} )
   }
 }
