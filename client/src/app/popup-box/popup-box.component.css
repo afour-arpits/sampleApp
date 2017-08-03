@@ -14,10 +14,10 @@
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto;
+    margin: 5% auto;
     padding: 60px;
     border: 1px solid #888;
-    width: 35%;
+    width: 50%;
 }
 
 /* The Close Button */
